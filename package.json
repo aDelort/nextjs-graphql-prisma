@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stop-infra": "docker-compose down",
+    "start-infra": "docker-compose up -d"
   },
   "dependencies": {
     "next": "11.1.0",
