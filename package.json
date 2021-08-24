@@ -4,14 +4,15 @@
   "private": false,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn generate-schema && next build",
+    "build": "yarn generate-schema && yarn gql-codegen && next build",
     "start": "next start",
     "lint": "next lint",
     "stop-infra": "docker-compose down",
     "start-infra": "docker-compose up -d",
     "apply-migrations": "prisma migrate dev",
     "reset-db": "prisma migrate reset",
-    "generate-schema": "ts-node-dev --transpile-only --no-notify src/pages/api/graphql.ts"
+    "generate-schema": "ts-node-dev --transpile-only --no-notify src/pages/api/graphql.ts",
+    "gql-codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.4.9",
@@ -27,6 +28,11 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.1.1",
+    "@graphql-codegen/introspection": "^2.1.0",
+    "@graphql-codegen/typescript": "^2.1.1",
+    "@graphql-codegen/typescript-operations": "^2.1.1",
+    "@graphql-codegen/typescript-react-apollo": "^3.1.1",
     "@types/react": "17.0.19",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
