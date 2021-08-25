@@ -3,6 +3,8 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "bradymholt.pgformatter",
-    "prisma.prisma"
+    "prisma.prisma",
+    "graphql.vscode-graphql",
+    "apollographql.vscode-apollo"
   ]
 }

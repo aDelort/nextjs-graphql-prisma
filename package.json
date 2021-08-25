@@ -4,17 +4,24 @@
   "private": false,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn generate-schema && next build",
     "start": "next start",
     "lint": "next lint",
     "stop-infra": "docker-compose down",
     "start-infra": "docker-compose up -d",
     "apply-migrations": "prisma migrate dev",
-    "reset-db": "prisma migrate reset"
+    "reset-db": "prisma migrate reset",
+    "generate-schema": "ts-node-dev --transpile-only --no-notify src/pages/api/graphql.ts"
   },
   "dependencies": {
     "@prisma/client": "~2.23.0",
+    "apollo-server": "^2.25.0",
+    "apollo-server-micro": "^2.25.0",
+    "graphql": "^15.5.1",
+    "micro": "^9.3.4",
     "next": "11.1.0",
+    "nexus": "^1.1.0",
+    "nexus-plugin-prisma": "^0.35.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -29,6 +36,7 @@
     "eslint-plugin-react": "^7.24.0",
     "prettier": "^2.3.2",
     "prisma": "~2.23.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "4.3.5"
   }
 }
