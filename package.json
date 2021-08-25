@@ -13,7 +13,8 @@
     "reset-db": "prisma migrate reset",
     "generate-schema": "ts-node-dev --transpile-only --no-notify src/pages/api/graphql.ts",
     "gql-codegen": "graphql-codegen --config codegen.yml",
-    "seed": "prisma db seed --preview-feature"
+    "seed": "prisma db seed --preview-feature",
+    "vercel-build": "prisma migrate deploy && prisma generate && yarn build"
   },
   "dependencies": {
     "@apollo/client": "^3.4.9",
